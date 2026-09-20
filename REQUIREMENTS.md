@@ -54,6 +54,16 @@ Sistem dirancang untuk berjalan dalam dua ekosistem:
   - Ringan & Mandiri: **Bebas dari berkas gambar** (dirender murni menggunakan CSS flat dan ikon outline SVG).
   - Komponen: 4 kartu alur operasional (`Receiving`, `Storage`, `Stock Control`, `Dispatch`) tanpa panel konsol bay tambahan agar tampilan tetap minimalis dan fokus pada alur.
 
+- **Struktur Penempatan & Ketersediaan Aset (GitHub & Multi-Directory Sync)**:
+  - Seluruh aset media (video H.264, gambar latar belakang, ilustrasi alur, dan logo resmi) wajib tersedia secara paralel pada 3 direktori:
+    1. `/assets/` (akar proyek untuk visibilitas langsung repositori GitHub).
+    2. `/public/assets/` (direktori publik standar bundler Vite).
+    3. `/dist/assets/` (direktori output penyajian server produksi/dev).
+  - Berkas HTML harus tersedia dalam 2 versi terkelola:
+    - `index.html` (HTML utama di root untuk repositori).
+    - `Dashboard-for-Spreadsheet.html` (HTML terintegrasi GAS hasil sinkronisasi).
+    - `dist/index.html` (HTML aktif yang disajikan oleh server).
+
 ---
 
 ## 3. Aturan & Pedoman Operasional (SOP)

@@ -166,6 +166,30 @@ Dokumen ini mencatat seluruh riwayat pembaruan, perubahan struktur data, dan pen
 - **Kepatuhan Pedoman Build**:
   - Build Vite tidak dijalankan otomatis dan tetap menunggu konfirmasi pengguna.
 
+---
+
+### [2026-09-20] — Sinkronisasi Seluruh Aset Media & Struktur Berkas ke Git Repository
+
+#### 1. Latar Belakang & Permintaan Pengguna
+- Pengguna melihat aset gambar, video, dan logo belum tampak pada repositori GitHub dan meminta agar seluruh aset tersebut ikut disertakan (push/sync).
+
+#### 2. Perubahan Desain & Teknis
+- **Restrukturisasi Direktori Aset**:
+  - Menyalin dan menyinkronkan seluruh aset media ke 3 lokasi standar:
+    1. Direktori akar (`/assets/`) untuk keterbacaan langsung di repositori utama GitHub.
+    2. Direktori `/public/assets/` sesuai konvensi bundling Vite & statis.
+    3. Direktori `/dist/assets/` untuk output build dan serving server Express.
+  - Aset mencakup: Video MP4 (`Generated Video September 20, 2026 - 10_31AM.mp4`, `storasia-flow.mp4`), Logo Resmi (`Gemini_Generated_Image_sppbudsppbudsppb (1).jpg`, `storasia-logo.jpg`, `storasia-logo.svg`), dan Gambar Pendukung (`warehouse-editorial.webp`, `logistics-flow.webp`).
+- **Penyelarasan 2 File HTML Sesuai SOP**:
+  - `index.html` (HTML Utama di root).
+  - `Dashboard-for-Spreadsheet.html` (HTML terintegrasi GAS).
+  - `dist/index.html` (Output live server).
+- **Inisialisasi & Pelacakan Git**:
+  - Mengonfigurasi branch `main`, memperbarui `.gitignore` agar mengabaikan `node_modules/` namun menyertakan semua berkas media dan HTML, serta membuat komit komprehensif sehingga seluruh aset siap diekspor/sinkron ke GitHub.
+- **Kepatuhan Pedoman Build**:
+  - Menunggu konfirmasi sebelum menjalankan build Vite otomatis.
+
+
 
 
 
