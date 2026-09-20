@@ -1,0 +1,14 @@
+{
+  "name": "storasia-integrata-prototype",
+  "version": "1.0.0",
+  "description": "Warehouse & Third-Party Logistics Partner di Batam, Kepulauan Riau — landing page PT Storasia Nevara Integrata.",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "node -e \"console.log('Build complete')\"",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
