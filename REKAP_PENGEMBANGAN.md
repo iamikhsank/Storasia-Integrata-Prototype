@@ -189,6 +189,29 @@ Dokumen ini mencatat seluruh riwayat pembaruan, perubahan struktur data, dan pen
 - **Kepatuhan Pedoman Build**:
   - Menunggu konfirmasi sebelum menjalankan build Vite otomatis.
 
+---
+
+### [2026-09-20] — Perbaikan Path & Konfigurasi GitHub Pages (Broken Image & Video Fix)
+
+#### 1. Masalah yang Terdeteksi pada GitHub Pages
+- Gambar logo navbar dan video hero tidak termuat saat diakses via GitHub Pages (`[broken icon] PT Storasia Nevara Integrata`).
+- **Penyebab Utama**:
+  1. **Karakter Khusus pada Nama Berkas**: Penggunaan nama berkas dengan spasi dan tanda kurung (`Gemini_Generated_Image_sppbudsppbudsppb (1).jpg` dan `Generated Video September 20, 2026 - 10_31AM.mp4`) menyebabkan URL parser browser dan server web GitHub Pages gagal memetakan tautan jika tidak di-encode secara ketat.
+  2. **Interferensi Mesin Jekyll**: GitHub Pages secara default menjalankan parser Jekyll jika berkas `.nojekyll` tidak ada, sehingga folder/berkas tertentu terabaikan.
+  3. **Resolusi Path Sub-Direktori GitHub Pages**: GitHub Pages menggunakan sub-path repositori (`https://username.github.io/repo-name/`). Jalur relatif tanpa titik (`assets/...`) rentan gagal jika URL dibuka tanpa trailing slash `/`.
+
+#### 2. Solusi yang Diterapkan
+- **Penggunaan Nama Berkas URL-Safe**:
+  - Mengubah tautan gambar logo menjadi `./assets/storasia-logo.jpg` dengan proteksi fallback otomatis ke `./assets/storasia-logo.svg` (`onerror`).
+  - Mengubah sumber video utama hero menjadi `./assets/storasia-flow.mp4` dan sekunder `./assets/gemini_generated_video_5106d547.mp4` (tanpa spasi dan tanpa karakter khusus).
+  - Menyelaraskan seluruh aset latar belakang dan ilustrasi alur dengan awalan `./assets/`.
+- **Penambahan Berkas `.nojekyll`**:
+  - Menambahkan berkas kosong `.nojekyll` pada direktori root (`/`), `/dist/`, dan `/public/` untuk mematikan Jekyll sehingga GitHub Pages menyajikan seluruh berkas statis apa adanya.
+- **Skrip Deteksi Trailing Slash**:
+  - Menyematkan skrip ringan pada `<head>` untuk memastikan URL memiliki trailing slash (`/`) saat dibuka di GitHub Pages, sehingga resolusi path relatif selalu mengarah ke repositori terkait.
+- **Sinkronisasi Ganda (Root & Dist)**:
+  - Memastikan kedua direktori (`/` dan `/dist/`) memiliki versi `index.html` dan aset yang identik, sehingga situs bekerja dengan baik baik jika GitHub Pages disetel melalui "Deploy from a branch" maupun "GitHub Actions".
+
 
 
 

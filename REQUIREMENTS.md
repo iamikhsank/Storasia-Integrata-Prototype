@@ -63,6 +63,10 @@ Sistem dirancang untuk berjalan dalam dua ekosistem:
     - `index.html` (HTML utama di root untuk repositori).
     - `Dashboard-for-Spreadsheet.html` (HTML terintegrasi GAS hasil sinkronisasi).
     - `dist/index.html` (HTML aktif yang disajikan oleh server).
+  - **Standar URL-Safe & GitHub Pages**:
+    - Seluruh penamaan aset wajib bebas dari spasi dan tanda kurung (misal `storasia-logo.jpg` dan `storasia-flow.mp4`).
+    - Jalur tautan menggunakan path relatif eksplisit (`./assets/...`).
+    - Wajib menyertakan berkas kosong `.nojekyll` di root dan dist untuk mencegah pemblokiran berkas statis oleh mesin Jekyll bawaan GitHub Pages.
 
 ---
 
