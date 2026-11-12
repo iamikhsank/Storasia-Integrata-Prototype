@@ -216,3 +216,40 @@ Dokumen ini mencatat seluruh riwayat pembaruan, perubahan struktur data, dan pen
 
 
 
+
+
+---
+
+### [2026-11-12] — Penyempurnaan Landing Page & Aksesibilitas
+
+- Mempertahankan identitas navy/cyan, logo, seluruh kontak, statistik existing, hero video edge-to-edge, serta alur pergudangan 2D statis tanpa gambar/animasi.
+- Memperjelas hierarki judul hero, ritme section, kartu kategori klien, standar layanan, dan panel konsultasi; menambahkan FAQ native berdasarkan isi layanan yang sudah ada.
+- Mengarahkan CTA “Lihat Alur Operasional” ke section alur yang sesuai.
+- Menambahkan skip link, focus ring, offset anchor untuk header, label menu dinamis, penutupan menu melalui Escape/klik luar/focus keluar, dan reset pada perubahan breakpoint.
+- Menampilkan konten tanpa ketergantungan IntersectionObserver; navigasi tetap tersedia tanpa JavaScript.
+- Menambahkan kontrol putar/jeda video; menghormati reduced motion dan saveData, menggunakan preload none, serta lazy loading gambar di bawah hero.
+- Menyinkronkan index.html, dist/index.html, dan Dashboard-for-Spreadsheet.html secara langsung. Tidak ada perubahan model data atau komponen dashboard GAS.
+- Validasi: parsing HTML, ID unik, semua anchor internal memiliki target, empat FAQ native, dan syntax check kedua inline script berhasil.
+- Batasan validasi: pengujian visual/interaksi Chromium dicoba tetapi diblokir runtime (socket() failed: Operation not permitted). Responsivitas, playback video, dan tampilan browser masih perlu review manual.
+- Tidak menjalankan build Vite, deployment, atau merge. Angka dan klaim layanan existing dipertahankan tanpa verifikasi bisnis tambahan.
+
+
+### [2026-11-12] — Eksplorasi Gudang 3D Interaktif
+
+- Menindaklanjuti permintaan pengguna untuk memperbagus landing page dengan elemen 3D JavaScript terkait bisnis pergudangan.
+- Menambahkan section Eksplorasi 3D terpisah: rak dua tingkat, pallet, area receiving/dispatch, dan jalur pergerakan barang. Modul Digital Warehouse Flow lama tetap 2D statis.
+- Renderer proyeksi 3D ortografis berbasis Canvas 2D dan JavaScript native, tanpa dependency CDN, model, atau tekstur eksternal.
+- Empat tombol tahap memperbarui highlight dan penjelasan; slider mengubah sudut kamera; tombol menjalankan/menjeda alur dan mengatur ulang tampilan.
+- Animasi hanya berjalan atas tindakan pengguna, berhenti ketika section keluar viewport atau tab tersembunyi; rasio piksel dibatasi maksimal 2. Reduced motion menggunakan perpindahan tahap tanpa animasi.
+- Fallback teks tersedia tanpa JavaScript/Canvas. Kontrol keyboard native, aria-pressed dan live region mendukung aksesibilitas. Tampilan menegaskan bahwa scene adalah ilustrasi konsep, bukan denah/data stok aktual.
+- Ketiga entry HTML disinkronkan. Tidak ada perubahan backend atau struktur data GAS; tidak menjalankan Vite build/deploy/merge.
+- Validasi: syntax tiga inline script; parsing HTML, ID dan anchor; harness renderer/interaction dengan canvas native pada 820×450 dan 350×310, stage selection, rotasi, reset, animasi, penghentian saat tab tersembunyi, dan reduced-motion (lulus). Render canvas desktop/mobile diperiksa visual.
+- Batasan: belum ada uji end-to-end layout seluruh halaman; Chromium lokal diblokir socket runtime, sementara CUA menolak protokol file lokal. Tidak dilakukan bypass.
+
+
+### [2026-11-12] — Favicon Logo Resmi dari Pengguna
+
+- Memasang gambar logo navy yang dilampirkan pengguna sebagai favicon tab browser.
+- Konversi proporsional dengan padding persegi: PNG 32×32 serta ICO 16/32/48 piksel, tanpa perubahan desain logo.
+- Menyimpan aset yang sama pada assets/, public/assets/, dist/assets/ dan menambahkan link relatif favicon pada tiga entry HTML tersinkron.
+- Tidak menjalankan Vite build. Merge dan publikasi melalui workflow existing dilakukan atas instruksi eksplisit pengguna.
