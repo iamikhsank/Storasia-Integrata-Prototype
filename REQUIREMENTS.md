@@ -82,3 +82,14 @@ Sistem dirancang untuk berjalan dalam dua ekosistem:
    - Setiap perubahan teknis harus dicatat dalam `REKAP_PENGEMBANGAN.md`.
 4. **Bahasa Komunikasi**:
    - Seluruh interaksi chat wajib menggunakan Bahasa Indonesia.
+
+
+## 4. Eksplorasi Gudang 3D — Pembaruan 2026-11-12
+
+Atas permintaan eksplisit pengguna, landing page memiliki section **Eksplorasi 3D** terpisah untuk menjelaskan bisnis pergudangan. Pembatasan 2D/statis pada **Digital Warehouse Flow** tetap berlaku hanya pada modul tersebut; section baru diperbolehkan menggunakan proyeksi 3D dan animasi yang dipicu pengguna.
+
+- JavaScript native dan Canvas 2D dengan proyeksi koordinat 3D; tanpa CDN atau model eksternal.
+- Rak, pallet, area receiving/dispatch, pilihan empat tahap, rotasi kamera, serta kontrol jalankan/jeda/reset.
+- Reduced motion menggunakan perpindahan tahap statis; fallback teks tersedia jika JS/Canvas tidak tersedia.
+- Berhenti saat tidak terlihat atau tab tersembunyi; render ulang sesuai kebutuhan, rasio piksel maksimal 2.
+- Scene adalah ilustrasi konsep, bukan denah gudang atau data stok aktual.
