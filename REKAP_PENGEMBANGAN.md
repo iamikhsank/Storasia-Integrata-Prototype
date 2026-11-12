@@ -216,3 +216,19 @@ Dokumen ini mencatat seluruh riwayat pembaruan, perubahan struktur data, dan pen
 
 
 
+
+
+---
+
+### [2026-11-12] — Penyempurnaan Landing Page & Aksesibilitas
+
+- Mempertahankan identitas navy/cyan, logo, seluruh kontak, statistik existing, hero video edge-to-edge, serta alur pergudangan 2D statis tanpa gambar/animasi.
+- Memperjelas hierarki judul hero, ritme section, kartu kategori klien, standar layanan, dan panel konsultasi; menambahkan FAQ native berdasarkan isi layanan yang sudah ada.
+- Mengarahkan CTA “Lihat Alur Operasional” ke section alur yang sesuai.
+- Menambahkan skip link, focus ring, offset anchor untuk header, label menu dinamis, penutupan menu melalui Escape/klik luar/focus keluar, dan reset pada perubahan breakpoint.
+- Menampilkan konten tanpa ketergantungan IntersectionObserver; navigasi tetap tersedia tanpa JavaScript.
+- Menambahkan kontrol putar/jeda video; menghormati reduced motion dan saveData, menggunakan preload none, serta lazy loading gambar di bawah hero.
+- Menyinkronkan index.html, dist/index.html, dan Dashboard-for-Spreadsheet.html secara langsung. Tidak ada perubahan model data atau komponen dashboard GAS.
+- Validasi: parsing HTML, ID unik, semua anchor internal memiliki target, empat FAQ native, dan syntax check kedua inline script berhasil.
+- Batasan validasi: pengujian visual/interaksi Chromium dicoba tetapi diblokir runtime (socket() failed: Operation not permitted). Responsivitas, playback video, dan tampilan browser masih perlu review manual.
+- Tidak menjalankan build Vite, deployment, atau merge. Angka dan klaim layanan existing dipertahankan tanpa verifikasi bisnis tambahan.
