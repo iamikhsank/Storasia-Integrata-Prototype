@@ -232,3 +232,16 @@ Dokumen ini mencatat seluruh riwayat pembaruan, perubahan struktur data, dan pen
 - Validasi: parsing HTML, ID unik, semua anchor internal memiliki target, empat FAQ native, dan syntax check kedua inline script berhasil.
 - Batasan validasi: pengujian visual/interaksi Chromium dicoba tetapi diblokir runtime (socket() failed: Operation not permitted). Responsivitas, playback video, dan tampilan browser masih perlu review manual.
 - Tidak menjalankan build Vite, deployment, atau merge. Angka dan klaim layanan existing dipertahankan tanpa verifikasi bisnis tambahan.
+
+
+### [2026-11-12] — Eksplorasi Gudang 3D Interaktif
+
+- Menindaklanjuti permintaan pengguna untuk memperbagus landing page dengan elemen 3D JavaScript terkait bisnis pergudangan.
+- Menambahkan section Eksplorasi 3D terpisah: rak dua tingkat, pallet, area receiving/dispatch, dan jalur pergerakan barang. Modul Digital Warehouse Flow lama tetap 2D statis.
+- Renderer proyeksi 3D ortografis berbasis Canvas 2D dan JavaScript native, tanpa dependency CDN, model, atau tekstur eksternal.
+- Empat tombol tahap memperbarui highlight dan penjelasan; slider mengubah sudut kamera; tombol menjalankan/menjeda alur dan mengatur ulang tampilan.
+- Animasi hanya berjalan atas tindakan pengguna, berhenti ketika section keluar viewport atau tab tersembunyi; rasio piksel dibatasi maksimal 2. Reduced motion menggunakan perpindahan tahap tanpa animasi.
+- Fallback teks tersedia tanpa JavaScript/Canvas. Kontrol keyboard native, aria-pressed dan live region mendukung aksesibilitas. Tampilan menegaskan bahwa scene adalah ilustrasi konsep, bukan denah/data stok aktual.
+- Ketiga entry HTML disinkronkan. Tidak ada perubahan backend atau struktur data GAS; tidak menjalankan Vite build/deploy/merge.
+- Validasi: syntax tiga inline script; parsing HTML, ID dan anchor; harness renderer/interaction dengan canvas native pada 820×450 dan 350×310, stage selection, rotasi, reset, animasi, penghentian saat tab tersembunyi, dan reduced-motion (lulus). Render canvas desktop/mobile diperiksa visual.
+- Batasan: belum ada uji end-to-end layout seluruh halaman; Chromium lokal diblokir socket runtime, sementara CUA menolak protokol file lokal. Tidak dilakukan bypass.
