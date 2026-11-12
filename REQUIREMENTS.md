@@ -84,12 +84,12 @@ Sistem dirancang untuk berjalan dalam dua ekosistem:
    - Seluruh interaksi chat wajib menggunakan Bahasa Indonesia.
 
 
-## 4. Eksplorasi Gudang 3D — Pembaruan 2026-11-12
+## 4. Visual Gudang 3D untuk Landing Page — Revisi 2026-11-12
 
-Atas permintaan eksplisit pengguna, landing page memiliki section **Eksplorasi 3D** terpisah untuk menjelaskan bisnis pergudangan. Pembatasan 2D/statis pada **Digital Warehouse Flow** tetap berlaku hanya pada modul tersebut; section baru diperbolehkan menggunakan proyeksi 3D dan animasi yang dipicu pengguna.
+Atas permintaan eksplisit pengguna, section 3D menjadi presentasi pemasaran yang bersih dengan headline “Setiap barang bergerak. Semua tetap terkendali.”. Tidak ada sidebar tahapan, slider kamera, tombol simulator, atau legenda. Pembatasan 2D/statis tetap berlaku pada modul Digital Warehouse Flow lama saja.
 
-- JavaScript native dan Canvas 2D dengan proyeksi koordinat 3D; tanpa CDN atau model eksternal.
-- Rak, pallet, area receiving/dispatch, pilihan empat tahap, rotasi kamera, serta kontrol jalankan/jeda/reset.
-- Reduced motion menggunakan perpindahan tahap statis; fallback teks tersedia jika JS/Canvas tidak tersedia.
-- Berhenti saat tidak terlihat atau tab tersembunyi; render ulang sesuai kebutuhan, rasio piksel maksimal 2.
-- Scene adalah ilustrasi konsep, bukan denah gudang atau data stok aktual.
+- Visual navy sinematik: empat bank rak tiga tingkat, pallet/karton, marka lantai, bayangan, struktur gudang dan forklift membawa barang.
+- JavaScript native dan Canvas 2D dengan proyeksi koordinat 3D, tanpa CDN atau model eksternal.
+- Animasi loop otomatis sesuai permintaan pengguna; berhenti diam-diam di luar viewport dan ketika tab tersembunyi. Target sekitar 30 fps, DPR maksimal 1,75.
+- Reduced motion tetap statis; fallback teks tersedia tanpa JS/Canvas. Ilustrasi tidak terhubung ke data stok aktual.
+- Sinkronisasi tiga entry HTML, pelestarian kontak/favicon, dokumentasi perubahan dan SOP build tetap berlaku.
