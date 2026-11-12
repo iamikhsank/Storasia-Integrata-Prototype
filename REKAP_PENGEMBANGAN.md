@@ -253,3 +253,15 @@ Dokumen ini mencatat seluruh riwayat pembaruan, perubahan struktur data, dan pen
 - Konversi proporsional dengan padding persegi: PNG 32×32 serta ICO 16/32/48 piksel, tanpa perubahan desain logo.
 - Menyimpan aset yang sama pada assets/, public/assets/, dist/assets/ dan menambahkan link relatif favicon pada tiga entry HTML tersinkron.
 - Tidak menjalankan Vite build. Merge dan publikasi melalui workflow existing dilakukan atas instruksi eksplisit pengguna.
+
+
+### [2026-11-12] — Visual Gudang Sinematik untuk Landing Page
+
+- Mengganti headline menjadi “Setiap barang bergerak. Semua tetap terkendali.” dan menulis ulang section untuk presentasi pemasaran yang bersih.
+- Menghapus sidebar tahapan, slider kamera, kontrol jalankan/jeda/reset, legenda, serta istilah simulator dari tampilan.
+- Membuat scene navy lebar dengan empat bank rak tiga tingkat, pallet kayu, variasi karton berlabel/pita, struktur gudang, marka jalur, bayangan, detail forklift dan pallet yang dibawanya.
+- Animasi forklift loop otomatis sesuai permintaan pengguna; diam-diam berhenti ketika section tidak terlihat/tab tersembunyi. Reduced motion menghasilkan frame statis. Render dibatasi sekitar 30 fps dan DPR maksimal 1,75.
+- Renderer tetap JavaScript/Canvas native tanpa CDN. Fallback tanpa Canvas/JS tetap menyediakan teks alur, dan canvas disembunyikan pada noscript.
+- Ketiga entry HTML, favicon, dan kontak tetap sinkron/terjaga. Modul flow operasional lama tidak diubah.
+- Validasi: syntax tiga script, parsing HTML, anchor/ID, tidak adanya kontrol simulator, keutuhan favicon/kontak; harness canvas desktop 1160×570 dan mobile 350×350 memverifikasi autoplay, loop frame, pause/resume visibility, serta reduced motion. Render desktop/mobile diperiksa visual. Uji layout browser penuh tetap belum tersedia karena keterbatasan runtime yang terdokumentasi sebelumnya.
+- Publikasi dilanjutkan melalui PR dan workflow Pages existing sesuai otorisasi pengguna; tanpa Vite build.
