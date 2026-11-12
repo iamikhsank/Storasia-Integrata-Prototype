@@ -245,3 +245,11 @@ Dokumen ini mencatat seluruh riwayat pembaruan, perubahan struktur data, dan pen
 - Ketiga entry HTML disinkronkan. Tidak ada perubahan backend atau struktur data GAS; tidak menjalankan Vite build/deploy/merge.
 - Validasi: syntax tiga inline script; parsing HTML, ID dan anchor; harness renderer/interaction dengan canvas native pada 820×450 dan 350×310, stage selection, rotasi, reset, animasi, penghentian saat tab tersembunyi, dan reduced-motion (lulus). Render canvas desktop/mobile diperiksa visual.
 - Batasan: belum ada uji end-to-end layout seluruh halaman; Chromium lokal diblokir socket runtime, sementara CUA menolak protokol file lokal. Tidak dilakukan bypass.
+
+
+### [2026-11-12] — Favicon Logo Resmi dari Pengguna
+
+- Memasang gambar logo navy yang dilampirkan pengguna sebagai favicon tab browser.
+- Konversi proporsional dengan padding persegi: PNG 32×32 serta ICO 16/32/48 piksel, tanpa perubahan desain logo.
+- Menyimpan aset yang sama pada assets/, public/assets/, dist/assets/ dan menambahkan link relatif favicon pada tiga entry HTML tersinkron.
+- Tidak menjalankan Vite build. Merge dan publikasi melalui workflow existing dilakukan atas instruksi eksplisit pengguna.
